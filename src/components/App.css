@@ -127,3 +127,20 @@ button:active{
   min-width: 370px;
   color: gray;
 }
+
+#consent-popup {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2rem;
+  background-color: #DDDDE2;
+  border: 1px solid #000;
+  color:#000;
+  transition: opacity .8s ease;
+  z-index: 10000;
+}
+
+#consent-popup.hidden{
+  opacity: 0;
+}
