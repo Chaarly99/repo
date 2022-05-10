@@ -1,0 +1,168 @@
+nav{
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    /*justify-content: right;*/
+    background-color: #fff;
+    color:whitesmoke;
+    position: relative;
+    z-index: 99;
+    border-bottom: 1px solid black;
+}
+
+.menu-icon{
+    display: none;
+    color: #000;
+}
+
+dl, ol, ul {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.fas{
+    cursor: pointer;
+}
+
+.menu-icon .fa-times{
+    transform: rotate(360deg);
+    transition: all 0.2 ease-in-out;
+    color: #000;
+}
+
+.logo{
+    font-weight: 600;
+    font-size: 25px;
+}
+
+img{
+    width:  100px;
+    height: 50px;
+    margin: 0;
+}
+
+.logo font{
+    color:#fff;
+}
+
+.menu-list{
+    list-style-type: none;
+    display:flex;
+    margin-left: auto;
+    order: 2;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.5 ease-in-out;
+}
+
+.menu-list li a{
+    text-decoration: none;
+    color: #000;
+    font-weight: 300;
+    padding: 5px 10px;
+    margin-left: 20px;
+}
+
+.menu-list li:last-child a{
+    font-weight: 300;
+    border: 1px solid black;
+    transition: all 0.5 ease-in-out;
+    margin-left: 20px;
+    border-radius: 50px 50px 50px;
+}
+.menu-list li:last-child a:hover{
+    color:#fff;
+    /*transition: all 0.2s ease-in-out;*/
+}
+
+.menu-list li a:hover,
+.menu-list li a:active{
+    background-color: #DDDDE2;
+    /*Opera y Navegadores basados en Webkit*/
+    background: -prefix-linear-gradient(right, #A2D4DF, #528C83, #DDDDE2);
+    /*(IE 10 y Firefox 10 en adelante)*/
+    background: linear-gradient(to right, #A2D4DF, #528C83, #DDDDE2);
+    border-radius: 50px 50px 50px;
+    /*padding: 1em;*/
+    color:#fff;
+    transition: all 0s ease-in-out;
+}
+
+@media only screen and (min-width: 100px) and (max-width: 300px){
+
+    .menu-icon{
+            display: block;
+            position: absolute;
+            right: 80% !important;
+            top: 1.8em;
+            border: outset #DDDDE2;
+            padding: 0.5em;
+        }
+    }
+
+@media screen and (max-width: 600px){
+    nav{
+        justify-content: center;
+    }
+    .menu-icon{
+        display: block;
+        position: absolute;
+        right: 85%;
+        top: 1.8em;
+        border: outset #DDDDE2;
+        padding: 0.5em;
+    }
+    .menu-list{
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        background-color: #fff;
+        /*padding: 20px;*/
+        right: 0;
+        top: 95px;
+        border: outset #DDDDE2;
+    }
+
+    .menu-list li{
+        /*margin: 1em;*/
+        width: 100%;
+        text-align: center;
+        border: 1px solid black;
+    }
+
+    .menu-list li:hover{
+        /*Opera y Navegadores basados en Webkit*/
+        background: -prefix-linear-gradient(right, #A2D4DF, #528C83, #DDDDE2);
+        /*(IE 10 y Firefox 10 en adelante)*/
+        background: linear-gradient(to right, #A2D4DF, #528C83, #DDDDE2);
+        color:#fff;
+    }
+
+    .menu-list li a:hover,
+    .menu-list li a:active{
+        background: none;
+        border-radius: 0;
+        transition: all 0s ease-in-out;
+    }
+
+    .menu-list li a, .menu-list li:last-child a{
+        /*width: 100px;*/
+        display: block;
+        /*margin:auto;*/
+        border: none;
+        padding: 1em;
+    }
+
+    .menu-list li:last-child a:hover{
+        background-color: none;
+        border: none;
+        /*transition: all 0.2s ease-in-out;*/
+        border-radius: 0;
+    }
+
+    .menu-list.close{
+        right: -100%;
+        transition: all 0.5 ease-in-out;
+    }
+}
+

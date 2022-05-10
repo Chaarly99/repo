@@ -1,0 +1,54 @@
+.services-submenu{
+    position: absolute;
+    top: 62px;
+    width: 9em;
+    list-style: none;
+    text-align: start;
+}
+
+.services-submenu li{
+    color: black;
+    background-color: #fff;
+    border: 1px solid black;
+    border-radius: 50px 50px 50px;
+}
+
+.services-submenu li:hover{
+    color: #fff;
+    /*Opera y Navegadores basados en Webkit*/
+    background: -prefix-linear-gradient(right, #A2D4DF, #528C83, #DDDDE2);
+    /*(IE 10 y Firefox 10 en adelante)*/
+    background: linear-gradient(to right, #A2D4DF, #528C83, #DDDDE2);
+}
+
+.services-submenu a{
+    border: none !important;
+}
+
+.services-submenu li a:hover{
+    background: none;
+}
+
+.services-submenu.clicked{
+    display: none;
+}
+
+.submenu-item{
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: #fff;
+    padding: 1em;
+}
+
+.submenu-item:hover{
+    background-color: #DDDDE2;
+    /*Opera y Navegadores basados en Webkit*/
+    background: -prefix-linear-gradient(right, #A2D4DF, #528C83, #DDDDE2);
+    /*(IE 10 y Firefox 10 en adelante)*/
+    background: linear-gradient(to right, #A2D4DF, #528C83, #DDDDE2);
+    /*padding: 1em;*/
+    color:#fff;
+    transition: all 0s ease-in-out;
+}

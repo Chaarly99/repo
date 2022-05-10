@@ -1,0 +1,133 @@
+nav{
+    
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    color:#fff;
+    position: relative;
+    z-index: 99;
+    border-bottom: 1px solid black;
+}
+
+.menu-icon{
+    display: none;
+    color: #000;
+}
+
+dl, ol, ul {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.fas{
+    cursor: pointer;
+}
+
+.menu-icon .fa-times{
+    transform: rotate(360deg);
+    transition: all 0.2 ease-in-out;
+    color: #000;
+}
+
+.logo{
+    font-weight: 600;
+    font-size: 25px;
+    color: #00D8FF;
+}
+img{
+    width:  100px;
+    height: 50px;
+    margin: 0;
+}
+
+.logo font{
+    color:#fff
+}
+
+.menu-list{
+    list-style-type: none;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.5 ease-in-out;
+}
+
+.menu-list li a{
+    text-decoration: none;
+    color: #000;
+    font-weight: 300;
+    padding: 5px 10px;
+    margin-left: 20px;
+}
+
+.menu-list li:last-child a{
+    font-weight: 300;
+    padding: 5px 10px;
+    border: 1px solid black;
+    transition: all 0.5 ease-in-out;
+    margin-left: 20px;
+    border-radius: 50px 50px 50px;
+}
+.menu-list li:last-child a:hover{
+    background-color: #DDDDE2;
+    color:#fff;
+    transition: all 0.2s ease-in-out;
+    border-radius: 50px 50px 50px;
+}
+
+.menu-list li a:hover,
+.menu-list li a:active{
+    background-color: #DDDDE2;
+    border-radius: 2px;
+    color:#fff;
+    transition: all 0.2s ease-in-out;
+}
+
+@media screen and (max-width: 800px){
+    .logo{
+        font-size: 20px;
+    }
+    .menu-list li a{
+        font-size: 14px;
+        margin: 10px;
+    }
+}
+
+@media screen and (max-width: 600px){
+    .menu-icon{
+        display: block;
+        position: absolute;
+        right: 90%;
+    }
+    .menu-list{
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        background-color: rgba(0, 0, 0, 0.7);
+        padding: 20px;
+        right: 0;
+        top: 64px;
+    }
+
+    .menu-list li{
+        margin-bottom: 20px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .menu-list li:last-child{
+        margin-bottom: 0px;
+    }
+
+    .menu-list li a, .menu-list li:last-child a{
+        width: 100px;
+        display: block;
+        margin:auto;
+    }
+
+    .menu-list.close{
+        right: -100%;
+        transition: all 0.5 ease-in-out;
+    }
+}
+

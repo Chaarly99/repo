@@ -1,0 +1,33 @@
+video{
+    position: absolute;
+    left: 50%;
+    object-fit: fill;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+/*Top-Bottom*/
+/* Tablets en horizonal y escritorios normales */
+@media (min-width: 768px) {
+    video{
+        top: 55%;
+        height: 94vh;
+    }
+}
+ 
+/* Móviles en horizontal o tablets en vertical */
+@media (max-width: 767px) {
+    video{
+        top: 43%;
+        height: 80vh;
+        width: 100vw;
+    }
+}
+ 
+/* Móviles en vertical */
+@media (max-width: 480px) {
+    video{
+        top:38%;
+        height: 60vh;
+    }
+}
