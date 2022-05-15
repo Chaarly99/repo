@@ -17,6 +17,8 @@ const useForm = (submitForm) =>{
         setValues({
             ...values,
             [event.target.name]: event.target.value,
+            [event.target.email]: event.target.value,
+            [event.target.passwd]: event.target.value,
         })
     };
     const handleFormSubmit = (event) =>{
