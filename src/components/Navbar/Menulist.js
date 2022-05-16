@@ -29,13 +29,13 @@ export const serviceDropdown = [
     {
         id: 1,
         title: "Login",
-        url: "/login",
+        url: "/user/login",
         cName: "submenu-item",
     },
     {
         id: 2,
         title: "Registro",
-        url: "/register",
+        url: "/user/register",
         cName: "submenu-item",
     },
 ]

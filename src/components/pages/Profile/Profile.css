@@ -1,11 +1,9 @@
-video{
-    position: absolute;
-    left: 50%;
-    object-fit: fill;
-    transform: translate(-50%, -50%);
-    z-index: -1;
+.App{
+   /* Opera y Navegadores basados en Webkit*/
+   background: -prefix-linear-gradient(right, #A2D4DF, #528C83, #DDDDE2);
+  /*(IE 10 y Firefox 10 en adelante)*/
+  background: linear-gradient(to right, #A2D4DF, #528C83, #DDDDE2) !important;
 }
-
 /*Top-Bottom*/
 /* Tablets en horizonal y escritorios normales */
 @media (min-width: 768px) {

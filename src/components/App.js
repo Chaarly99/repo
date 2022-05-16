@@ -58,7 +58,6 @@ function App() {
       setTimeout(() => {
         consentPopup.classList.remove('hidden');
       }, 2000);
-      
     }
   }
   return (
@@ -69,9 +68,8 @@ function App() {
           <Route path='/' element={<Home/>} />
           <Route path='/contacto' element={<Contact/>} />
           <Route path='/about' element={<About/>} />
-          <Route path='/login' element={<Login/>} />
-          <Route path='/register' element={<Register/>} />
-          <Route path='/register/:id' element={<Register/>} />
+          <Route path='/user/login' element={<Login/>} />
+          <Route path='/user/register' element={<Register/>} />
           <Route path='/resumen' element={<Summary/>} />
           <Route path='/evolucion' element={<Evolution/>} />
           <Route path='/consejos' element={<Tips/>} />

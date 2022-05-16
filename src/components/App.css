@@ -5,8 +5,11 @@
 }
 
 .App {
-  /*background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url("./images/fondo.png");*/
-  background-color: #fff;
+  /*Opera y Navegadores basados en Webkit*/
+  /* background: -prefix-linear-gradient(right, #A2D4DF, #528C83, #DDDDE2); */
+  /*(IE 10 y Firefox 10 en adelante)*/
+  /* background: linear-gradient(to right, #A2D4DF, #528C83, #DDDDE2); */
+  /* background-color: #fff; */
   background-position: center;
   background-size: cover;
   height: 100vh;
