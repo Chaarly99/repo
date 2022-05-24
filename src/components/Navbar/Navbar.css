@@ -3,7 +3,7 @@ nav{
     display: flex;
     flex-direction: row;
     /*justify-content: right;*/
-    background-color: #fff;
+    background-color: #fcfbfd;
     color:whitesmoke;
     position: relative;
     z-index: 99;

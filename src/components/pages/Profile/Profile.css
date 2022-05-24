@@ -2,8 +2,34 @@
    /* Opera y Navegadores basados en Webkit*/
    background: -prefix-linear-gradient(right, #A2D4DF, #528C83, #DDDDE2);
   /*(IE 10 y Firefox 10 en adelante)*/
-  background: linear-gradient(to right, #A2D4DF, #528C83, #DDDDE2) !important;
+  background: linear-gradient(to right, #A2D4DF, #528C83, #DDDDE2);
 }
+.bt1{
+    border: none;
+    background-color: #fff;
+    color: #000;
+}
+.bt1:hover{
+    background-color: #fff;
+    color: #000;
+    transform: scale(1.1);
+}
+.bt2{
+    border: none;
+    background-color: #E5A484;
+}
+.bt2:hover{
+    background-color: #E5A484;
+    color: #fff;
+    transform: scale(1.1);
+}
+
+@media (max-width: 992px) { 
+    .second{
+        flex: none;
+    }
+}
+
 /*Top-Bottom*/
 /* Tablets en horizonal y escritorios normales */
 @media (min-width: 768px) {

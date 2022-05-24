@@ -1,0 +1,12 @@
+
+.food{
+    width: 80%;
+    height: 100%;
+}
+
+@media (max-width: 992px) { 
+    .second{
+        flex: none;
+    }
+}
+

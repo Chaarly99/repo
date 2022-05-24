@@ -1,105 +1,134 @@
 import "./Register.css"
 // import useForm from "../useForm";
 import React, {Component} from "react";
-import api from '../../../api/index'
+import UserDataService from "../../../services/user.service";
 
 class Register extends Component {
     constructor(props) {
-        super(props)
-
+        super(props);
+        this.onChangeName = this.onChangeName.bind(this);
+        this.onChangeEmail = this.onChangeEmail.bind(this);
+        this.onChangePasswd = this.onChangePasswd.bind(this);
+        this.saveUser = this.saveUser.bind(this);
+        this.newUser = this.newUser.bind(this);
         this.state = {
-            name: '',
-            email: '',
-            passwd: '',
-        }
+          id: null,
+          name: "",
+          email: "", 
+          passwd: "",
+          submitted: false
+        };
     }
 
-    handleChangeInputName = async event => {
-        const name = event.target.value
-        this.setState({ name })
+    onChangeName(e) {
+    this.setState({
+        name: e.target.value
+    });
     }
-
-    handleChangeInputEmail = async event => {
-        const email = event.target.validity.valid
-            ? event.target.value
-            : this.state.email
-
-        this.setState({ email })
+    onChangeEmail(e) {
+    this.setState({
+        email: e.target.value
+    });
     }
-
-    handleChangeInputPasswd = async event => {
-        const passwd = event.target.value
-        this.setState({ passwd })
-    }
-
-    handleIncludeUser = async () => {
-        const { name, email, passwd } = this.state
-        const payload = { name, email, passwd }
-
-        await api.insertUser(payload).then(() => {
-            window.alert(`User inserted successfully`)
-            this.setState({
-                name: '',
-                email: '',
-                passwd: '',
-            })
+    onChangePasswd(e) {
+    this.setState({
+        passwd: e.target.value
+    });
+    }  
+    saveUser() {
+    var data = {
+        name: this.state.name,
+        email: this.state.email,
+        passwd: this.state.passwd
+    };
+    UserDataService.create(data)
+        .then(response => {
+        this.setState({
+            id: response.data.id,
+            name: response.data.name,
+            email: response.data.email,
+            passwd: response.data.passwd,
+            published: response.data.published,
+            submitted: true
+        });
+        console.log(response.data);
         })
+        .catch(e => {
+        console.log(e);
+        });
     }
-
-    submit = e => {
-        e.preventDefault();
-        alert('it works!');
+    newUser() {
+    this.setState({
+        id: null,
+        name: "",
+        email: "",
+        passwd: "",
+        published: false,
+        submitted: false
+    });
     }
 
     render() {
-        const { name, email, passwd } = this.state
         return(
             <div className="container">
-                <div className="app-wrapper">
-                    <div>
-                        <h2 className="title">Crear cuenta</h2>
-                    </div>
-                    <form className="form-wrapper" onSubmit={this.submit}>
-                        <div className="name">
-                            <label className="label">Nombre</label>
-                            <input 
-                                className="input"
-                                type="text"
-                                name="name"
-                                value={name} //values.name
-                                onChange={this.handleChangeInputName}
-                            />
-                                {/* {errors.name && <p className="error">{errors.name}</p>} */}
-                        </div>
-                        <div className="email">
-                            <label className="label">Email</label>
-                            <input 
-                                className="input"
-                                type="email"
-                                name="email"
-                                value={email} //values.email
-                                onChange={this.handleChangeInputEmail}
-                            />
-                            {/* {errors.email && <p className="error">{errors.email}</p>} */}
-                        </div>
-                        <div className="password">
-                            <label className="label">Contraseña</label>
-                            <input 
-                                className="input"
-                                type="password"
-                                name="passwd"
-                                value={passwd} //values.passwd
-                                onChange={this.handleChangeInputPasswd}
-                            />
-                            {/* {errors.passwd && <p className="error">{errors.passwd}</p>} */}
-                        </div>
-                        <div>
-                            <button className="submit" onClick={this.handleIncludeUser}>
-                                Registrarse
-                            </button>
-                        </div>
-                    </form>
+            {this.state.submitted ? (
+            <div>
+                <h4>¡El usuario se ha registrado correctamente!</h4>
+                <button className="btn btn-success" onClick={this.newUser}>
+                Volver
+                </button>
+            </div>
+            ) : (
+            <div className="app-wrapper">
+                <div>
+                    <h2 className="title">Crear cuenta</h2>
                 </div>
+                <div className="form-wrapper">
+                    <div className="name">
+                        <label htmlFor="name">Nombre</label>
+                        <input
+                            type="text"
+                            className="form-control"
+                            id="name"
+                            required
+                            value={this.state.name}
+                            onChange={this.onChangeName}
+                            name="name"
+                        />
+                        {/* {errors.name && <p className="error">{errors.name}</p>} */}
+                    </div>
+                    <div className="email">
+                        <label htmlFor="email">Email</label>
+                        <input
+                            type="text"
+                            className="form-control"
+                            id="email"
+                            required
+                            value={this.state.email}
+                            onChange={this.onChangeEmail}
+                            name="email"
+                        />
+                        {/* {errors.email && <p className="error">{errors.email}</p>} */}
+                    </div>
+                    <div className="password">
+                        <label htmlFor="passwd">Contraseña</label>
+                        <input
+                            type="text"
+                            className="form-control"
+                            id="passwd"
+                            required
+                            value={this.state.passwd}
+                            onChange={this.onChangePasswd}
+                            name="passwd"
+                        />
+                        {/* {errors.passwd && <p className="error">{errors.passwd}</p>} */}
+                    </div>
+                    <button onClick={this.saveUser} className="submit">
+                    Registrarse
+                    </button>
+                </div>
+            </div>
+            )}
             </div>
         )}
 };

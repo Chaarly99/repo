@@ -1,6 +1,5 @@
 .services-submenu{
     position: absolute;
-    top: 62px;
     width: 9em;
     list-style: none;
     text-align: center;
@@ -52,4 +51,21 @@
     /*padding: 1em;*/
     color:#fff;
     transition: all 0s ease-in-out;
+}
+
+@media screen and (max-width: 600px){
+    .services-submenu{
+        top: 1;
+        width: 100vw;
+    }
+    .services-submenu li{
+        border-radius:0;
+        padding-right: 0;
+    }
+}
+
+@media screen and (min-width: 600px){
+    .services-submenu{
+        top: 52px;
+    }
 }

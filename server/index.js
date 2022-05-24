@@ -1,23 +1,44 @@
-const express = require('express')
-const bodyParser = require('body-parser')
-const cors = require('cors')
+const express = require("express");
+const bodyParser = require("body-parser");
+const cors = require("cors");
 
-const db = require('./data/db')
-const useRouter = require('./routes/user-router')
+const app = express();
 
-const app = express()
-const apiPort = 3000
+var corsOptions = {
+  origin: "http://192.168.1.94:8081"
+};
 
-app.use(bodyParser.urlencoded({ extended: true }))
-app.use(cors())
-app.use(bodyParser.json())
+app.use(cors(corsOptions));
 
-db.on('error', console.error.bind(console, 'MongoDB connection error:'))
+// parse requests of content-type - application/json
+app.use(bodyParser.json());
 
-app.get('/', (req, res) => {
-    res.send('Hello World!')
-})
+// parse requests of content-type - application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use('/api', useRouter)
+const db = require("./models");
+db.mongoose
+  .connect(db.url, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  })
+  .then(() => {
+    console.log("Connected to the database!");
+  })
+  .catch(err => {
+    console.log("Cannot connect to the database!", err);
+    process.exit();
+  });
 
-app.listen(apiPort, () => console.log(`Server running on port ${apiPort}`))
+// simple route
+app.get("/", (req, res) => {
+  res.json({ message: "Welcome to cparro application." });
+});
+
+require("./routes/user-router")(app);
+
+// set port, listen for requests
+const PORT = process.env.PORT || 8080;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}.`);
+});

@@ -1,8 +1,11 @@
+import { Row, Col } from 'react-bootstrap'
+import 'bootstrap/dist/css/bootstrap.css';
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
+import Button from 'react-bootstrap/Button';
 
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -12,94 +15,107 @@ const Item = styled(Paper)(({ theme }) => ({
     color: theme.palette.text.secondary,
   }));
 
-const Evolucion = () => {
+const Evolution = () => {
     return(
-        <Box sx={{ width: 1, padding: 2 }}>
-            <Box display="grid" gap={2}>
-                <Box gridColumn="span 4">
-                    <Item>xs=4
-                        <Paper
-                            sx={{
-                            p: 2,
-                            margin: 'auto',
-                            // height: 500,
-                            flexGrow: 1,
-                            backgroundColor: (theme) =>
-                                theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-                            }}
-                        >
-                            <Grid container spacing={2}>
-                                <Grid item xs={12} sm container>
-                                    <Grid item xs container direction="column" spacing={2}>
-                                    {/* <Img alt="complex" src="/static/images/grid/complex.jpg" /> */}
+        <Box>
+            <div style={{ display: 'block', width: '100vw', padding: 30}}>
+                <Row>
+                    <Col className='first'>
+                        <Box>
+                            <h3>Informe Semanal</h3>
+                            <Item>
+                                <Paper
+                                    sx={{
+                                    p: 2,
+                                    margin: 'auto',
+                                    // height: 500,
+                                    flexGrow: 1,
+                                    backgroundColor: (theme) =>
+                                        theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+                                    }}
+                                >
+                                    <Grid container spacing={2}>
+                                        <Grid item xs={12} sm container>
+                                            <Grid item xs container direction="column" spacing={2}>
+                                            {/* <Img alt="complex" src="/static/images/grid/complex.jpg" /> */}
+                                            </Grid>
+                                            <Grid item xs>
+                                                <Typography gutterBottom variant="subtitle1" component="div">
+                                                    ...
+                                                </Typography>
+                                            </Grid>
+                                        </Grid>
                                     </Grid>
-                                    <Grid item xs>
-                                        <Typography gutterBottom variant="subtitle1" component="div">
-                                            Informe Semanal
-                                        </Typography>
+                                </Paper>
+                            </Item>
+                        </Box>
+                    </Col>
+                    <Col className='second'>
+                        <Box>
+                            <h3>Mejores Días</h3>
+                            <Item>
+                                <Paper
+                                    sx={{
+                                    p: 2,
+                                    margin: 'auto',
+                                    // height: 500,
+                                    flexGrow: 1,
+                                    backgroundColor: (theme) =>
+                                        theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+                                    }}
+                                >
+                                    <Grid container spacing={2}>
+                                        <Grid item xs={12} sm container>
+                                            <Grid item xs container direction="column" spacing={2}>
+                                            {/* <Img alt="complex" src="/static/images/grid/complex.jpg" /> */}
+                                            </Grid>
+                                            <Grid item xs>
+                                                <Typography gutterBottom variant="subtitle1" component="div">
+                                                    ...
+                                                </Typography>
+                                            </Grid>
+                                        </Grid>
                                     </Grid>
-                                </Grid>
-                            </Grid>
-                        </Paper>
-                    </Item>
-                </Box>
-            <Box gridColumn="span 4">
-                <Item>xs=4
-                    <Paper
-                        sx={{
-                        p: 2,
-                        margin: 'auto',
-                        // height: 500,
-                        flexGrow: 1,
-                        backgroundColor: (theme) =>
-                            theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-                        }}
-                    >
-                        <Grid container spacing={2}>
-                            <Grid item xs={12} sm container>
-                                <Grid item xs container direction="column" spacing={2}>
-                                {/* <Img alt="complex" src="/static/images/grid/complex.jpg" /> */}
-                                </Grid>
-                                <Grid item xs>
-                                    <Typography gutterBottom variant="subtitle1" component="div">
-                                        Mejores Días
-                                    </Typography>
-                                </Grid>
-                            </Grid>
-                        </Grid>
-                    </Paper>
-                </Item>
-            </Box>
-            <Box gridColumn="span 8">
-                <Item>xs=8
-                    <Paper
-                            sx={{
-                            p: 2,
-                            margin: 'auto',
-                            // height: 500,
-                            flexGrow: 1,
-                            backgroundColor: (theme) =>
-                                theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-                            }}
-                        >
-                            <Grid container spacing={2}>
-                                <Grid item xs={12} sm container>
-                                    <Grid item xs container direction="column" spacing={2}>
-                                    {/* <Img alt="complex" src="/static/images/grid/complex.jpg" /> */}
+                                </Paper>
+                            </Item>
+                        </Box>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col>
+                        <Box>
+                            <h3>Mensual</h3>
+                            <Item>
+                                <Paper
+                                    sx={{
+                                    p: 2,
+                                    margin: 'auto',
+                                    // height: 500,
+                                    flexGrow: 1,
+                                    backgroundColor: (theme) =>
+                                        theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+                                    }}
+                                >
+                                    <Grid container spacing={2}>
+                                        <Grid item xs={12} sm container>
+                                            <Grid item xs container direction="column" spacing={2}>
+                                            {/* <Img alt="complex" src="/static/images/grid/complex.jpg" /> */}
+                                            </Grid>
+                                            <Grid item xs>
+                                                <Typography gutterBottom variant="subtitle1" component="div">
+                                                    ...
+                                                </Typography>
+                                            </Grid>
+                                        </Grid>
                                     </Grid>
-                                    <Grid item xs>
-                                        <Typography gutterBottom variant="subtitle1" component="div">
-                                            Mensual
-                                        </Typography>
-                                    </Grid>
-                                </Grid>
-                            </Grid>
-                        </Paper>
-                </Item>
-            </Box>
+                                </Paper>
+                            </Item>
+                        </Box>
+                    </Col>
+                </Row>
+            </div>
         </Box>
-    </Box>
     )
 };
 
-export default Evolucion;
+export default Evolution;

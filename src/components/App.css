@@ -5,17 +5,15 @@
 }
 
 .App {
-  /*Opera y Navegadores basados en Webkit*/
-  /* background: -prefix-linear-gradient(right, #A2D4DF, #528C83, #DDDDE2); */
-  /*(IE 10 y Firefox 10 en adelante)*/
-  /* background: linear-gradient(to right, #A2D4DF, #528C83, #DDDDE2); */
-  /* background-color: #fff; */
   background-position: center;
   background-size: cover;
   height: 100vh;
   width: 100%;
   position: relative;
-  overflow: hidden;
+  overflow: scroll;
+  overflow-x: hidden;
+  transition: 0.5s;
+  animation: ease-in;
 }
 
 .App::after{
@@ -81,7 +79,7 @@
 }
 
 .app-wrapper{
-  background-color: #fff;
+  background-color: #FCFBFD;
   min-width: 350px;
   min-height: 650px;
   padding: 30px;
@@ -104,7 +102,7 @@
   text-transform: uppercase;
   font-size: 20px;
   border-radius: 25px;
-  color: #fff;
+  color: #FCFBFD;
   padding: 10px 60px;
   /*Opera y Navegadores basados en Webkit*/
   background: -prefix-linear-gradient(right, #A2D4DF, #528C83, #DDDDE2);

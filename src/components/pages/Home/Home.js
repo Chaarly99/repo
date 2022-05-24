@@ -4,7 +4,7 @@ import video from '../../../media/video_inicio_Per4mance.mp4';
 
 const Home = () => {
     return(
-        <div className="page-heading">
+        <div className="home">
             <video autoPlay loop muted>
                 <source src={video} type='video/mp4'/>
             </video>

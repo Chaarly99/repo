@@ -1,15 +1,27 @@
-const express = require('express')
+/*
+/api/users: GET, POST, DELETE
+/api/users/:id: GET, PUT, DELETE
+/api/users/published: GET
+*/
 
-const UserCtrl = require('../controllers/user-ctrl')
-
-const router = express.Router()
-
-router.post('/user', () => {
-    UserCtrl.createUser
-});
-router.put('/user/:id', UserCtrl.updateUser)
-router.delete('/user/:id', UserCtrl.deleteUser)
-router.get('/user/:id', UserCtrl.getUserById)
-router.get('/users', UserCtrl.getUsers)
-
-module.exports = router
+module.exports = app => {
+    const users = require("../controllers/user.controller.js");
+    var router = require("express").Router();
+    // Create a new User
+    router.post("/", users.create);
+    // Retrieve all Users
+    router.get("/", users.findAll);
+   /*  // Retrieve all published Users
+    router.get("/published", users.findAllPublished); */
+    // Retrieve a single User with id
+    router.get("/:id", users.findOne);
+    // Retrieve a single User with email
+    // router.get("/:email", users.findByEmail);
+    // Update a User with id
+    router.put("/:id", users.update);
+    // Delete a User with id
+    router.delete("/:id", users.delete);
+    // Create a new User
+    router.delete("/", users.deleteAll);
+    app.use('/api/users', router);
+};

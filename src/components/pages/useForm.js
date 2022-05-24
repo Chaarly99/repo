@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import validation from "./validation";
+import validation from "./validationRegister";
 
 const useForm = (submitForm) =>{
 

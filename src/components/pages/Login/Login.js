@@ -2,88 +2,103 @@ import "./Login.css"
 // import useForm from "../useForm";
 import { useNavigate } from "react-router-dom";
 import React, {Component} from "react";
-import api from '../../../api/index'
+import {withRouter} from '../withRouter';
+import UserDataService from "../../../services/user.service";
 
 class Login extends Component {
     
     constructor(props) {
-        super(props)
-
+        super(props);
+        this.onChangeEmail = this.onChangeEmail.bind(this);
+        this.onChangePasswd = this.onChangePasswd.bind(this);
+        this.findUser = this.findUser.bind(this);
+        this.newUser = this.newUser.bind(this);
         this.state = {
-            name: '',
-            email: '',
-            passwd: '',
-        }
-    }
-
-    handleChangeInputEmail = async event => {
-        const email = event.target.validity.valid
-            ? event.target.value
-            : this.state.email
-
-        this.setState({ email })
-    }
-
-    handleChangeInputPasswd = async event => {
-        const passwd = event.target.value
-        this.setState({ passwd })
-    }
-
-    handleIncludeUser = async () => {
-        const { email, passwd } = this.state
-        const payload = { email, passwd }
-
-        await api.getUserById(payload).then(() => {
-            window.alert(`User Login successfully`)
+          id: null,
+          email: "", 
+          passwd: ""
+        };
+      }
+      onChangeEmail(e) {
+        this.setState({
+          email: e.target.value
+        });
+      }
+      onChangePasswd(e) {
+        this.setState({
+          passwd: e.target.value
+        });
+      }  
+      findUser() {
+        var data = {
+          email: this.state.email,
+          passwd: this.state.passwd
+        };
+        UserDataService.findByEmail_passwd(data)
+          .then(response => {
             this.setState({
-                email: '',
-                passwd: '',
-            })
+              email: response.data.email,
+              passwd: response.data.passwd,
+            });
+            console.log(response.data);
+            
             const navigate = useNavigate();
             navigate('/resumen');
-        })
-    }
+
+          })
+          .catch(e => {
+            console.log(e);
+            alert("El usuario especificado no existe.")
+          });
+      }
+      newUser() {
+        this.setState({
+          id: null,
+          email: "",
+          passwd: ""
+        });
+      }
 
     render() {
-        const { email, passwd } = this.state
         return(
             <div className="container">
                 <div className="app-wrapper">
                     <div>
                         <h2 className="title">Login</h2>
                     </div>
-                    <form className="form-wrapper">
-                        <div className="email">
-                            <label className="label">Email</label>
-                            <input 
-                                className="input"
-                                type="email"
-                                name="email"
-                                value={email} //values.email
-                                onChange={this.handleChangeInputEmail}
-                            />
-                            {/* {errors.email && <p className="error">{errors.email}</p>} */}
-                        </div>
-                        <div className="password">
-                            <label className="label">Contraseña</label>
-                            <input 
-                                className="input"
-                                type="password"
-                                name="passwd"
-                                value={passwd} //values.passwd
-                                onChange={this.handleChangeInputPasswd}
-                            />
-                            {/* {errors.passwd && <p className="error">{errors.passwd}</p>} */}
-                        </div>
-                        <div>
-                            <button className="submit" onClick={this.handleIncludeUser}>
-                                Iniciar Sesión
-                            </button>
-                        </div>
-                    </form>
+                <div className="form-wrapper">
+                    <div className="email">
+                        <label htmlFor="email">Email</label>
+                        <input
+                            type="text"
+                            className="form-control"
+                            id="email"
+                            required
+                            value={this.state.email}
+                            onChange={this.onChangeEmail}
+                            name="email"
+                        />
+                    </div>
+                    <div className="password">
+                        <label htmlFor="passwd">Contraseña</label>
+                        <input
+                            type="text"
+                            className="form-control"
+                            id="passwd"
+                            required
+                            value={this.state.passwd}
+                            onChange={this.onChangePasswd}
+                            name="passwd"
+                        />
+                    </div>
+                    <button onClick={this.findUser} className="submit">
+                    Iniciar Sesión
+                    </button>
                 </div>
             </div>
-        )}
+        </div>
+        )
+    }
 };
 
-export default Login;
+export default withRouter(Login);
