@@ -1,11 +1,14 @@
 import "./Contact.css"
 import useForm from "../useForm";
+import Navbar from '../../Navbar/Navbar'
 
 const Contacto = ({submitForm}) => {
     const {handleChange, handleFormSubmit, values, errors} = useForm(
         submitForm
     );
     return(
+        <>
+        <Navbar />
         <div className="container">
             <div className="app-wrapper">
                 <div>
@@ -53,7 +56,7 @@ const Contacto = ({submitForm}) => {
                 </form>
             </div>
         </div>
-    )
+    </>)
 };
 
 export default Contacto;

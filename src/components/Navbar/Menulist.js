@@ -2,25 +2,25 @@ export const MenuList = [
     {
         id: 1,
         title: "Inicio",
-        url: "./",
+        url: "/",
         cName: "nav-item",
     },
     {
         id: 2,
         title: "Contacto",
-        url: "./contacto",
+        url: "/contacto",
         cName: "nav-item",
     },
     {
         id: 3,
         title: "Quiénes Somos",
-        url: "./about",
+        url: "/about",
         cName: "nav-item",
     },
     {
         id: 4,
         title: "Iniciar Sesión",
-        url: "./",
+        url: "/",
         cName: "nav-item",
     }
 ];
@@ -29,13 +29,13 @@ export const serviceDropdown = [
     {
         id: 1,
         title: "Login",
-        url: "./login",
+        url: "/login",
         cName: "submenu-item",
     },
     {
         id: 2,
         title: "Registro",
-        url: "./register",
+        url: "/register",
         cName: "submenu-item",
     },
 ]

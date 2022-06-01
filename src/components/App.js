@@ -1,7 +1,5 @@
 import './App.css';
-import React from 'react';
-
-import Navbar from './Navbar/Navbar'
+import React from "react";
 
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 
@@ -60,10 +58,12 @@ function App() {
       }, 2000);
     }
   }
+ /*  alert(localStorage.getItem('logged'))
+  const [isLogged] = useState(localStorage.getItem('logged')); */
+
   return (
     <div className="App">
       <Router>
-        <Navbar/>
         <Routes>
           <Route path='/' element={<Home/>} />
           <Route path='/contacto' element={<Contact/>} />
@@ -79,7 +79,7 @@ function App() {
       </Router>
 
       <div id="consent-popup" className="hidden">
-        <p>Usando este sitio aceptas nuestros <a href='#'> Términos y Condiciones</a>.
+        <p>Usando este sitio aceptas nuestros <a href={pdf} target="_blank" rel="noopener noreferrer" download="Aviso_de_privacidad.pdf"> Términos y Condiciones</a>.
           Por favor <a id="accept" href='#'>Acepte</a> esto antes de usar nuestro sitio. 
         </p>     
       </div>

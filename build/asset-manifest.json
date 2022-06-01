@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.307be78f.css",
-    "main.js": "/static/js/main.726463ad.js",
+    "main.css": "/static/css/main.00ff8c54.css",
+    "main.js": "/static/js/main.6bc06e47.js",
     "static/media/pescado.webp": "/static/media/pescado.738185531c028e7fb92d.webp",
     "static/media/verdura.webp": "/static/media/verdura.da6f4cdb8a019e1a68cf.webp",
     "static/media/parallax1.jpg": "/static/media/parallax1.4f9ca5d3b295ddf91dd6.jpg",
@@ -10,11 +10,11 @@
     "static/media/video_inicio_Per4mance.mp4": "/static/media/video_inicio_Per4mance.dcd8e469b437760ab7ef.mp4",
     "static/media/Performance-logo-sinfondo.png": "/static/media/Performance-logo-sinfondo.5ff5198c7696b7d78860.png",
     "index.html": "/index.html",
-    "main.307be78f.css.map": "/static/css/main.307be78f.css.map",
-    "main.726463ad.js.map": "/static/js/main.726463ad.js.map"
+    "main.00ff8c54.css.map": "/static/css/main.00ff8c54.css.map",
+    "main.6bc06e47.js.map": "/static/js/main.6bc06e47.js.map"
   },
   "entrypoints": [
-    "static/css/main.307be78f.css",
-    "static/js/main.726463ad.js"
+    "static/css/main.00ff8c54.css",
+    "static/js/main.6bc06e47.js"
   ]
 }

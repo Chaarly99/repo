@@ -70,14 +70,25 @@ img{
     margin-left: 20px;
     border-radius: 50px 50px 50px;
 }
-.menu-list li:last-child a:hover{
-    color:#fff;
-    /*transition: all 0.2s ease-in-out;*/
+
+.menu-list li ul:hover{
+	color:#fff;
 }
+
+.menu-list li ul li a:hover{
+	background: none;
+}
+
+/* .menu-list li:last-child a:hover{ */
+    /*Opera y Navegadores basados en Webkit*/
+    /* background: -prefix-linear-gradient(right, #A2D4DF, #528C83, #DDDDE2); */
+    /*(IE 10 y Firefox 10 en adelante)*/
+    /* background: linear-gradient(to right, #A2D4DF, #528C83, #DDDDE2); */
+    /*transition: all 0.2s ease-in-out;*/
+/* } */
 
 .menu-list li a:hover,
 .menu-list li a:active{
-    background-color: #DDDDE2;
     /*Opera y Navegadores basados en Webkit*/
     background: -prefix-linear-gradient(right, #A2D4DF, #528C83, #DDDDE2);
     /*(IE 10 y Firefox 10 en adelante)*/
@@ -165,4 +176,5 @@ img{
         transition: all 0.5 ease-in-out;
     }
 }
+
 

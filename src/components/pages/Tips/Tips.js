@@ -2,7 +2,7 @@ import { Row, Col } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.css';
 import { styled } from '@mui/material/styles';
 import './Tips.css'
-
+import Navbar2 from '../../Navbar2/Navbar';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
@@ -17,6 +17,8 @@ import { color } from '@mui/system';
 
 const Tips = () => {
   return(
+    <>
+    <Navbar2 />
     <div style={{ display: 'block', width: '100vw', padding: 30, background: "#fff" }}>
       <h4>Consejos del día</h4>
       <Row>
@@ -50,7 +52,7 @@ const Tips = () => {
       </Col>
       </Row>
     </div>
-)
+</>)
 };
 
 

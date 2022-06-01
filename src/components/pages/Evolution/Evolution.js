@@ -4,8 +4,15 @@ import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
-import Typography from '@mui/material/Typography';
-import Button from 'react-bootstrap/Button';
+import 'chart.piecelabel.js';
+
+import Navbar2 from '../../Navbar2/Navbar';
+
+import { Bar, Doughnut, Line, Pie } from 'react-chartjs-2';
+import { Chart, registerables } from 'chart.js';
+import { fontSize } from '@mui/system';
+Chart.register(...registerables);
+
 
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -16,7 +23,140 @@ const Item = styled(Paper)(({ theme }) => ({
   }));
 
 const Evolution = () => {
+
+     //----------GRÁFICO LÍNEAS------------
+    var days = [
+        'Lunes',
+        'Martes',
+        'Miércoles',
+        'Jueves',
+        'Viernes',
+        'Sábado',
+        'Domingo'
+    ];
+    
+    var dataLine={
+        labels: days,
+        datasets:[{
+          label: 'Calorías Perdidas',
+        //   data: Object.values(localStorage.getItem("cal_perd_sem").split(',')),
+          data: [200,300,400,300,500],
+          backgroundColor: '#528C83'
+        }]
+    }
+    
+    var opcionesLine={
+        responsive: true,
+        scales: {
+          y: {
+            beginAtZero: true,
+            max: 1000
+          }
+        },
+        plugins: {
+          legend: {
+            position: 'bottom',
+          }
+          
+          /* title: {
+            display: true,
+            text: 'Chart.js Doughnut Chart'
+          } */
+        }
+    }
+      //-----------------------------------------------
+
+      //----------GRÁFICO CIRCULAR------------
+
+    var monthsCircle = [
+        'Enero',
+        'Marzo',
+        'Abril'
+    ];
+        
+    var colors2 = [
+        '#528C83',
+        '#DDDDE2',
+        '#9DCFD9'
+    ];
+        
+    var dataCircle={
+        labels: monthsCircle,
+        datasets:[{
+            data: [12, 138, 300],
+            backgroundColor: Object.values(colors2)
+        }]
+    }
+        
+    var opcionesCircle={
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            legend: {
+                position: 'top',
+            }
+            /* title: {
+                display: true,
+                text: 'Chart.js Doughnut Chart'
+            } */
+        }
+    }
+  
+        //------------------------------------
+
+        //----------GRÁFICO DE BARRAS----------
+
+  
+    var months = [
+        'Enero',
+        'Febrero',
+        'Marzo',
+        'Abril',
+        'Mayo',
+        'Junio',
+        'Julio',
+        'Agosto',
+        'Septiembre',
+        'Octubre',
+        'Noviembre',
+        'Diciembre'
+    ];
+
+    var dataBar={
+        labels:months,
+        datasets:[{
+            label:"Calorías perdidas hoy",
+            backgroundColor: "#528C83",
+            bordercolor: "black",
+            borderWidth: 1,
+            hoverBackgroundColor: "#528C8380",
+            hoverBorderColor: "#FF0000",
+            barThickness: 40,
+            // data: Object.values(localStorage.getItem("cal_perd_mes").split(','))
+            data : [200, 400, 500, 100]
+        }]
+    }
+
+    var opcionesBar={
+        maintainAspectRatio: false,
+        responsive: true,
+        categoryPercentage: 0.7, // here 
+        barPercentage: 0.98,  // here
+        scales: {
+            y: {
+                beginAtZero: true,
+                steps: 10,
+                stepValue: 5,
+                max: 1000
+            }
+        }
+    }
+
+        //------------------------------------
+
     return(
+        <>
+        <Navbar2 />
         <Box>
             <div style={{ display: 'block', width: '100vw', padding: 30}}>
                 <Row>
@@ -37,12 +177,7 @@ const Evolution = () => {
                                     <Grid container spacing={2}>
                                         <Grid item xs={12} sm container>
                                             <Grid item xs container direction="column" spacing={2}>
-                                            {/* <Img alt="complex" src="/static/images/grid/complex.jpg" /> */}
-                                            </Grid>
-                                            <Grid item xs>
-                                                <Typography gutterBottom variant="subtitle1" component="div">
-                                                    ...
-                                                </Typography>
+                                                <Line data={dataLine} options={opcionesLine}/>
                                             </Grid>
                                         </Grid>
                                     </Grid>
@@ -67,12 +202,7 @@ const Evolution = () => {
                                     <Grid container spacing={2}>
                                         <Grid item xs={12} sm container>
                                             <Grid item xs container direction="column" spacing={2}>
-                                            {/* <Img alt="complex" src="/static/images/grid/complex.jpg" /> */}
-                                            </Grid>
-                                            <Grid item xs>
-                                                <Typography gutterBottom variant="subtitle1" component="div">
-                                                    ...
-                                                </Typography>
+                                                <Pie data={dataCircle} height={"548px"} options={opcionesCircle}/>
                                             </Grid>
                                         </Grid>
                                     </Grid>
@@ -84,7 +214,7 @@ const Evolution = () => {
                 <Row>
                     <Col>
                         <Box>
-                            <h3>Mensual</h3>
+                            <h3 className="mensual">Mensual</h3>
                             <Item>
                                 <Paper
                                     sx={{
@@ -99,12 +229,7 @@ const Evolution = () => {
                                     <Grid container spacing={2}>
                                         <Grid item xs={12} sm container>
                                             <Grid item xs container direction="column" spacing={2}>
-                                            {/* <Img alt="complex" src="/static/images/grid/complex.jpg" /> */}
-                                            </Grid>
-                                            <Grid item xs>
-                                                <Typography gutterBottom variant="subtitle1" component="div">
-                                                    ...
-                                                </Typography>
+                                                <Bar data={dataBar} height={"213px"} options={opcionesBar}/>
                                             </Grid>
                                         </Grid>
                                     </Grid>
@@ -115,7 +240,7 @@ const Evolution = () => {
                 </Row>
             </div>
         </Box>
-    )
+    </>)
 };
 
 export default Evolution;

@@ -1,9 +1,8 @@
 .services-submenu{
     position: absolute;
-    top: 62px;
     width: 9em;
     list-style: none;
-    text-align: start;
+    text-align: center;
 }
 
 .services-submenu li{
@@ -11,6 +10,7 @@
     background-color: #fff;
     border: 1px solid black;
     border-radius: 50px 50px 50px;
+    padding-right: 9%;
 }
 
 .services-submenu li:hover{
@@ -51,4 +51,21 @@
     /*padding: 1em;*/
     color:#fff;
     transition: all 0s ease-in-out;
+}
+
+@media screen and (max-width: 600px){
+    .services-submenu{
+        top: 1;
+        width: 100vw;
+    }
+    .services-submenu li{
+        border-radius:0;
+        padding-right: 0;
+    }
+}
+
+@media screen and (min-width: 600px){
+    .services-submenu{
+        top: 52px;
+    }
 }
