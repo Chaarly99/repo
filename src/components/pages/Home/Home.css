@@ -12,6 +12,60 @@ video{
     z-index: 2;
 }
 
+.terms{
+    text-decoration: none;
+}
+
+#h2Login{
+    display: inline;
+    color: #fff;
+    text-align: center;
+}
+
+.insta{
+    border: 1px solid black;
+    width: 80%;
+    height: 50%;
+}
+
+#cta{
+    text-align: center;
+    padding: 1em;
+}
+
+.style1{
+    padding: 2em;
+}
+
+.label{
+    color: #fff;
+}
+
+.social1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+}
+.social2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.secs{
+    cursor: pointer;
+}
+
+.foot {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: calc(var(--bs-gutter-x)*-.5);
+    margin-right: calc(var(--bs-gutter-x)*-.5);
+    margin-top: calc(var(--bs-gutter-y)*-1);
+}
 /*Top-Bottom*/
 /* Tablets en horizonal y escritorios normales */
 @media (min-width: 768px) {

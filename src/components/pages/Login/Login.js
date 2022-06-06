@@ -2,6 +2,8 @@ import "./Login.css"
 // import useForm from "../useForm";
 import { useNavigate } from "react-router-dom";
 import React, {useState} from "react";
+import { toast, ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.min.css';
 import UserDataService from "../../../services/user.service";
 
 import Navbar from '../../Navbar/Navbar'
@@ -10,38 +12,39 @@ export default function Login() {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-/*   const [cal_perd, setCalPerd] = useState(0);
-  const [objetivo, setObjetivo] = useState(0);
-  const [cal_perd_sem, setCalPerdSem] = useState([]);
-  const [cal_perd_mes, setCalPerdMes] = useState([]); */
 
-/*   const updateEmail = e => ;
-  const updatePassword = e => ;
- */
   const navigate = useNavigate();
 
-  const findUser = () => {
-    var data = {
-      email: email.value,
-      passwd: password
-    };
+  function delay(time) {
+    return new Promise(resolve => setTimeout(resolve, time));
+  }
 
-    UserDataService.findByEmail_passwd(data)
-      .then(response => {
-        localStorage.setItem('user', response.data)
-        alert("Se ha encontrado al usuario.")
-        navigate('/resumen')
-      })
+  const findUser = async (e) => {
+    e.preventDefault();
+    if(!email || !password){
+      return toast.error('Por favor rellene todos los campos.')
+    }else{
+      var data = {
+        email: email,
+        passwd: password
+      };
+      UserDataService.findByEmail_passwd(data)
+      .then((response) => 
+        localStorage.setItem('user', JSON.stringify(response.data)),
+        delay(3000).then(() => navigate('/resumen'))
+      ) 
       .catch(e => {
-        console.log(e);
-        alert("El usuario especificado no existe.")
+          console.log(e);
+          alert("El usuario especificado no existe.")
       });
+    }
   }
   
   return (
     <>
     <Navbar />
     <div className="container">
+      <ToastContainer position="top-center" limit={1} />
       <div className="app-wrapper">
         <div>
           <h2 className="title">Login</h2>

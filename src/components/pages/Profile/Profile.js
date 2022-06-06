@@ -27,48 +27,54 @@ const Item = styled(Paper)(({ theme }) => ({
 
 export default function Profile() {
 
+    const [name] = useState(JSON.parse(localStorage.getItem('user'))[0].name);
+    const [age] = useState(JSON.parse(localStorage.getItem('user'))[0].age);
+    const [weight] = useState(JSON.parse(localStorage.getItem('user'))[0].weight);
+    const [height] = useState(JSON.parse(localStorage.getItem('user'))[0].height);
+    const [activity] = useState(JSON.parse(localStorage.getItem('user'))[0].activity);
+    const [act, setAct] = useState("")
+    const [sexo] = useState(JSON.parse(localStorage.getItem('user'))[0].sexo);
+
     useEffect(() => {
-        findUser();
+        setActivity(activity);
         // code to run after render goes here
       }, []); //[] run once
-
-    const [name, setName] = useState("cparro");
-    const [email, setEmail] = useState("carlosparro2010@gmail.com");
-    const [password, setPassword] = useState("1234");
-    const [age, setAge] = useState(0);
-    const [weight, setWeight] = useState(0);
-    const [height, setHeight] = useState(0);
-    const [activity, setActivity] = useState(0);
-    const [sexo, setSexo] = useState("");
-    const [user, setUser] = useState(null);
     
-
-    /*   const updateEmail = e => ;
-    const updatePassword = e => ;
-    */
     const navigate = useNavigate();
 
-    const findUser = () => {
-        var data = {
-            email: email,
-            passwd: password
-        };
-        UserDataService.findByEmail_passwd(data)
-        .then((response) => setUser(JSON.stringify(response.data)))
-        .catch(e => {
-            console.log(e);
-            alert("El usuario especificado no existe.")
-        });
-        console.log(user)
+    const closeSession = () => {
+        localStorage.clear();
+        navigate('/'); 
+    }
+
+    const setActivity = (act) => {
+        switch (act) {
+            case 1:
+                setAct("No hago ejercicio diariamente")
+                break;
+            case 2:
+                setAct("Hago ejercicio de vez en cuando")
+                break;
+            case 3:
+                setAct("Hago ejercicio varias veces a la semana")
+                break;
+            case 4:
+                setAct("Hago ejercicio todos los dias")
+                break;
+            default:
+                break;
+        }
     }
 
     const deleteUser = () => {
         var id = {
-            email: email
+            id: JSON.parse(localStorage.getItem('user'))[0]._id
         };
         UserDataService.delete(id)
         .then(() => {
             alert("El usuario ha sido borrado correctamente.")
+            localStorage.clear();
+            navigate('/'); 
         })
         .catch(e => {
             console.log(e);
@@ -94,10 +100,10 @@ export default function Profile() {
         <div style={{ display: 'block', width: '100vw', padding: 30}}>
             <Row>
                 <Col className='first'>
-                    <h1>Perfil de User</h1>
+                    <h1>Perfil de {name}</h1>
                 </Col>
                 <Col className="second">
-                    <Button className="bt1" onClick={()=>{navigate('/'); localStorage.clear();}}>Cerrar Sesión</Button>{' '}
+                    <Button className="bt1" onClick={closeSession}>Cerrar Sesión</Button>{' '}
                     <Button className="bt2" onClick={deleteUser}>Borrar Perfil</Button>{' '}
                 </Col>
             </Row>
@@ -120,12 +126,9 @@ export default function Profile() {
                             >
                                 <Grid container spacing={2}>
                                     <Grid item xs={12} sm container>
-                                        <Grid item xs container direction="column" spacing={2}>
-                                        {/* <Img alt="complex" src="/static/images/grid/complex.jpg" /> */}
-                                        </Grid>
                                         <Grid item xs>
-                                            <Typography gutterBottom variant="subtitle1" component="div">
-                                             Años
+                                            <Typography gutterBottom variant="h4" component="div">
+                                             {age} Años
                                             </Typography>
                                         </Grid>
                                     </Grid>
@@ -150,12 +153,9 @@ export default function Profile() {
                             >
                                 <Grid container spacing={2}>
                                     <Grid item xs={12} sm container>
-                                        <Grid item xs container direction="column" spacing={2}>
-                                        {/* <Img alt="complex" src="/static/images/grid/complex.jpg" /> */}
-                                        </Grid>
                                         <Grid item xs>
-                                            <Typography gutterBottom variant="subtitle1" component="div">
-                                             Kg
+                                            <Typography gutterBottom variant="h4" component="div">
+                                            {weight} Kg
                                             </Typography>
                                         </Grid>
                                     </Grid>
@@ -180,12 +180,9 @@ export default function Profile() {
                             >
                                 <Grid container spacing={2}>
                                     <Grid item xs={12} sm container>
-                                        <Grid item xs container direction="column" spacing={2}>
-                                        {/* <Img alt="complex" src="/static/images/grid/complex.jpg" /> */}
-                                        </Grid>
                                         <Grid item xs>
-                                            <Typography gutterBottom variant="subtitle1" component="div">
-                                             cm
+                                            <Typography gutterBottom variant="h4" component="div">
+                                            {height} cm
                                             </Typography>
                                         </Grid>
                                     </Grid>
@@ -214,12 +211,9 @@ export default function Profile() {
                             >
                                 <Grid container spacing={2}>
                                     <Grid item xs={12} sm container>
-                                        <Grid item xs container direction="column" spacing={2}>
-                                        {/* <Img alt="complex" src="/static/images/grid/complex.jpg" /> */}
-                                        </Grid>
                                         <Grid item xs>
-                                            <Typography gutterBottom variant="subtitle1" component="div">
-                                            
+                                            <Typography gutterBottom variant="h4" component="div">
+                                            {act}
                                             </Typography>
                                         </Grid>
                                     </Grid>
@@ -244,12 +238,9 @@ export default function Profile() {
                             >
                                 <Grid container spacing={2}>
                                     <Grid item xs={12} sm container>
-                                        <Grid item xs container direction="column" spacing={2}>
-                                        {/* <Img alt="complex" src="/static/images/grid/complex.jpg" /> */}
-                                        </Grid>
                                         <Grid item xs>
-                                            <Typography gutterBottom variant="subtitle1" component="div">
-                                            
+                                            <Typography gutterBottom variant="h4" component="div">
+                                            {sexo}
                                             </Typography>
                                         </Grid>
                                     </Grid>

@@ -1,20 +1,22 @@
 {
   "files": {
-    "main.css": "/static/css/main.00ff8c54.css",
-    "main.js": "/static/js/main.6bc06e47.js",
+    "main.css": "/static/css/main.faad07c5.css",
+    "main.js": "/static/js/main.da865108.js",
     "static/media/pescado.webp": "/static/media/pescado.738185531c028e7fb92d.webp",
     "static/media/verdura.webp": "/static/media/verdura.da6f4cdb8a019e1a68cf.webp",
     "static/media/parallax1.jpg": "/static/media/parallax1.4f9ca5d3b295ddf91dd6.jpg",
     "static/media/fruta.webp": "/static/media/fruta.021ef5207712c2e5ac12.webp",
+    "static/media/Modelo-de-Aviso-de-Privacidad-Per4mance.pdf": "/static/media/Modelo-de-Aviso-de-Privacidad-Per4mance.b69f57c6bdc0d82d51e0.pdf",
     "static/media/carnes.webp": "/static/media/carnes.7d3533bb846e2839a0d1.webp",
     "static/media/video_inicio_Per4mance.mp4": "/static/media/video_inicio_Per4mance.dcd8e469b437760ab7ef.mp4",
+    "static/media/instagram.webp": "/static/media/instagram.62cdd6fea7eea7631d6b.webp",
     "static/media/Performance-logo-sinfondo.png": "/static/media/Performance-logo-sinfondo.5ff5198c7696b7d78860.png",
     "index.html": "/index.html",
-    "main.00ff8c54.css.map": "/static/css/main.00ff8c54.css.map",
-    "main.6bc06e47.js.map": "/static/js/main.6bc06e47.js.map"
+    "main.faad07c5.css.map": "/static/css/main.faad07c5.css.map",
+    "main.da865108.js.map": "/static/js/main.da865108.js.map"
   },
   "entrypoints": [
-    "static/css/main.00ff8c54.css",
-    "static/js/main.6bc06e47.js"
+    "static/css/main.faad07c5.css",
+    "static/js/main.da865108.js"
   ]
 }

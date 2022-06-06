@@ -29,8 +29,9 @@ h3{
 }
 
 .text-box{
+    height: 100vh;
     text-align: center;
-    padding: 3rem 1rem;
+    padding: 4rem 1rem;
     text-align:justify;
     background-color: #fcfbfd;
 }

@@ -3,9 +3,33 @@
     width: 80%;
     height: 100%;
 }
+ul{
+    list-style: none;
+}
 
-@media (max-width: 992px) { 
-    .second{
+.containerd{
+    display: 'block';
+    width: '100vw';
+    padding: 30;
+    background: "#fff"; 
+}
+
+.firstT{
+    font-size: 22px;
+}
+
+.secondT{
+    display: flex;
+    margin-top: -178px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+}
+
+@media (max-width: 1024px) { 
+    .secondT{
+        display: contents;
         flex: none;
     }
 }

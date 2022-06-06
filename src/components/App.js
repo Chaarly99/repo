@@ -16,6 +16,8 @@ import Profile from './pages/Profile/Profile'
 
 import NotFound from './pages/NotFound';
 
+import pdf from "../media/Modelo-de-Aviso-de-Privacidad-Per4mance.pdf"
+
 function App() {
   const cookieStorage = {
     getItem: (key) => {
